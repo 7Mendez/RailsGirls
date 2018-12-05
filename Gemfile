@@ -13,6 +13,9 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+gem 'devise'
+
 gem 'carrierwave'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
