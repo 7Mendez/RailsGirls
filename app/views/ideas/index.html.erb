@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Catalogo de Productos</h1>
+
+
+<div class="table-responsive">
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+       <th></th>
+      <th>Precio</th>
+       <th></th>
+      <th>Imagen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+   <td> </td>
+  <tbody>
+
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+         <td></td>
+        <td><%= idea.description %></td>
+        <td></td>
+        <td class="img-rounded" ><%= image_tag idea.picture_url, width: '50%' if idea.picture.present? %></td>
+        <td><%= link_to 'Mostrar', idea %></td>
+        <td><%= link_to 'Editar', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Eliminar', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div> 
+<br>
+
+<%= link_to 'Nuevo Elemento', new_idea_path %>
